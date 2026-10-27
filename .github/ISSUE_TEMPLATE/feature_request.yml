@@ -1,0 +1,46 @@
+name: Feature request
+description: Suggest an idea or an improvement for Meevra Code.
+title: "[Idea]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping shape Meevra Code. Please check the [open issues](https://github.com/MeevraCode/meevra-code/issues) and the [roadmap](https://github.com/MeevraCode/meevra-code#whats-next) first, in case the idea is already there.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the situation and what is hard or missing today.
+      placeholder: When I ..., I have to ..., because ...
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like Meevra Code to do?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How would you use it?
+      description: The steps you imagine, from start to finish.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What do you do today instead?
+  - type: input
+    id: version
+    attributes:
+      label: Meevra Code version
+      description: Shown in Settings › Updates.
+      placeholder: e.g. 2.23.0
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows version
+      options:
+        - Windows 11
+        - Windows 10
+        - Other

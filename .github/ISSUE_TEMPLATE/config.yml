@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Collaboration, partnerships and further development
+    url: https://github.com/MeevraCode/meevra-code#support-the-project
+    about: Write to founder@meevra.si for collaboration, partnerships, integrations or further development of Meevra Code.
+  - name: Report a security vulnerability
+    url: https://github.com/MeevraCode/meevra-code/security/policy
+    about: Please do not open a public issue for a security problem. Report it privately to founder@meevra.si, as the security policy describes.
+  - name: Website
+    url: https://meevra.si
+    about: News and information about Meevra Code.

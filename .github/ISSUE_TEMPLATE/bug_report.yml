@@ -1,0 +1,100 @@
+name: Bug report
+description: Something in Meevra Code does not work as it should.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a problem. Please check the [open issues](https://github.com/MeevraCode/meevra-code/issues) first, in case it is already known.
+
+        **Never paste API keys, passwords, tokens or private code here.** For a security problem, do not open an issue: see the [security policy](https://github.com/MeevraCode/meevra-code/security/policy).
+  - type: input
+    id: version
+    attributes:
+      label: Meevra Code version
+      description: Shown in Settings › Updates.
+      placeholder: e.g. 2.23.0
+    validations:
+      required: true
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows version
+      options:
+        - Windows 11
+        - Windows 10
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: windows-build
+    attributes:
+      label: Windows build (optional)
+      description: Press Win+R, type winver and press Enter.
+      placeholder: e.g. 24H2, build 26100
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does it happen?
+      options:
+        - Install or update
+        - Chat
+        - Code task
+        - Mission Control or Flow
+        - Brain or Vault
+        - Agents
+        - Providers
+        - Quota
+        - Tools & MCP
+        - Computer use
+        - Terminal
+        - Activity
+        - Settings
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: provider
+    attributes:
+      label: Provider and model (if it matters)
+      description: For example "OpenRouter, <model name>" or "local model with Ollama". Names only, never a key.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: What did you do, step by step?
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened instead?
+      description: Error messages, screenshots or a short screen recording help a lot. Please remove anything private first.
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does it happen?
+      options:
+        - Every time
+        - Sometimes
+        - Once so far
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you send
+      options:
+        - label: I removed API keys, passwords, tokens and private code from this report.
+          required: true
