@@ -297,11 +297,11 @@ As the license agreement says, showing a feature as "Coming soon" is not a promi
 This is a summary. The full text is the **EULA**, attached to every release as `EULA-en.txt` and shown in the app under **Settings › About**.
 
 - **No account.** Meevra Code does not require an account with us.
-- **No telemetry.** It does not send us usage analytics.
+- **No telemetry unless you choose it.** Meevra Code sends us no usage analytics. You can choose to share **anonymous usage totals** once a day: how many tokens your models used (in and out, per hour and per kind of provider) and how many model turns ran in chats and in other work. Never your text, code, files, project names, keys or anything that identifies you. It is off until you turn it on, and you can turn it off at any time in Settings.
 - **Your work stays on your computer.** Projects, chats, settings, Brain memory and the Vault are stored locally.
 - **Your keys stay on your computer.** API keys are stored encrypted locally and are never sent to us.
 - **Your content goes only where you send it.** When you use a provider, the prompts and files you choose go directly from your computer to that provider.
-- **The update check is anonymous.** When Meevra Code checks for updates, it tells the update service only its version and edition, with no identifier, and marks at most one automatic check a day. We count only those marked checks, by day, version and edition, with no IP address or other personal data stored with the count. The update service (Cloudflare, with update files possibly downloaded from GitHub) receives normal technical data such as your IP address, kept only in their service logs.
+- **The update check is anonymous.** When Meevra Code checks for updates, it tells the update service only its version and edition, with no identifier, and marks the first automatic check of each day (and of each calendar month, UTC). We count only those marked checks, by hour (UTC), day, month, version and edition, with no IP address or other personal data stored with the count, and keep the counts for 13 months. The update service (Cloudflare, with update files possibly downloaded from GitHub) receives normal technical data such as your IP address, kept only in their service logs.
 - **Logs stay local.** Diagnostic logs are shared only if you export them yourself and choose to send them to us.
 - **Verified updates.** Every update is verified before it is installed.
 - **Protected by default.** Approval levels, per-role permissions that a prompt cannot widen, Computer use off until you turn it on, and secrets filtered out of anything Meevra Code stores or shows.

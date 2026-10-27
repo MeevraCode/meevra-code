@@ -2,6 +2,14 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.24.0 — Public Preview
+
+### Usage totals, only if you choose
+- A new choice, asked once: **Share anonymous usage totals**. Once a day, Meevra Code sends how many tokens your models used (in and out, per hour and per kind of provider) and how many model turns ran in chats and in other work. Never your text, code, files, project names, keys or anything that identifies you.
+- **Off by default.** Turn it on or off at any time in Settings.
+- The anonymous update check also marks the first automatic check of each calendar month (UTC), so we can count how many copies are in use each month, still with no identifier. Counts and shared totals are kept for 13 months, then deleted.
+- The license agreement is now version 1.4: its Privacy section describes exactly this. You are asked to accept it once after the update.
+
 ## 2.23.1 — Public Preview
 
 The first public release of Meevra Code for Windows 10 and 11 (x64). Free to use during the preview. It includes everything listed under 2.23.0 below, plus the fixes from a full review before launch:
@@ -60,7 +68,7 @@ The feature set the Public Preview is built on. It was not published on its own.
 
 ### Updates and privacy
 - Updates from a signed update channel, offered in **Settings › Updates**.
-- No account and no telemetry. An anonymous update check at most once a day.
+- No account, and no telemetry unless you choose to share anonymous usage totals. An anonymous update check at most once a day.
 
 ### Coming soon
 Bots, TV & second screen, Mobile, more subscription sign-ins, Scout, and Brain's Agent memory, Brain Explorer and Memory savings.
