@@ -2,6 +2,17 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.25.0 — Public Preview
+
+### Web search that just works
+- Agents can search the web with no setup: free DuckDuckGo search is on by default, and Grok Build, Claude and ChatGPT plans can also use their own search (counted in your plan). Meevra shows what was searched.
+- Optional: your own Tavily, Brave or Exa key in **Settings › Web search**.
+- New: agents can read a single web page without opening a browser. An address the task did not find and you did not give asks first.
+
+### Browser and errors
+- The hidden browser is now called **Use the browser**, never "computer use", and shows no screen glow. Redirects, time limits and errors are reported in plain words; pages on your local network stay closed to it.
+- **Caught errors** folds into a list with **Ignore all**, and errors from other websites are no longer caught.
+
 ## 2.24.0 — Public Preview
 
 ### Usage totals, only if you choose
