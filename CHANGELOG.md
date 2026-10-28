@@ -2,6 +2,13 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.25.2 — Public Preview
+
+- Pictures you attach to a Code task now reach models that can see images (OpenAI, Anthropic and Google API keys; such models show the **Vision** mark). A model that cannot see images says so plainly.
+- Chat can search the web and read a page when you use an API key, a custom endpoint or OpenRouter. It never does this while the chat holds Brain memory, attached files or Vault notes, and an address that the search did not find and you did not give is always asked first.
+- GitHub search covers repositories, issues and users. Code search needs a GitHub sign-in, so it is no longer offered.
+- Removed: the photo-to-Excel tool. Meevra Code is a coding app, and it keeps to that.
+
 ## 2.25.1 — Public Preview
 
 - OpenAI API keys work with GPT-5 and the o-series models.
