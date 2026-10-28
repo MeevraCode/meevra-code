@@ -2,6 +2,15 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.25.1 — Public Preview
+
+- OpenAI API keys work with GPT-5 and the o-series models.
+- Local models run at the context you chose in the Library (16K by default) instead of a fixed 4K, and Meevra says plainly when a model is too small for a Code task.
+- Artifacts (a page, diagram or document an agent makes) are saved as files in your project's artifacts/ folder, never over an existing file.
+- The Computer use Stop button works in the public edition.
+- With Brain on, a long task's history is never folded to make room for Brain's own notes.
+- The license agreement is version 1.5: it names the web connections (the search service, GitHub search and the pages an agent reads). You are asked to accept it once after the update.
+
 ## 2.25.0 — Public Preview
 
 ### Web search that just works
