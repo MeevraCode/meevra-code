@@ -2,6 +2,18 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.38.10 — Public Preview
+
+Five fixes found while testing 2.38.9 with real Claude, ChatGPT and Grok plans.
+
+- A task that ended with an answer and took no step now reads **Answered**, not Done, and says so: nothing was read, changed or run.
+- A task sent in the first seconds after the app starts waits for the first provider check (up to 20 seconds) instead of stopping.
+- When a model answers in a form Meevra Code cannot read, the model is told what was wrong. After three such answers in a row the task stops and says why, instead of going on.
+- A task that has not edited a file yet says "No file edits yet".
+- Providers: the number of models on a plan's card now matches the list under "Your models".
+
+Good to know: this update downloads the full installer (about 510 MB).
+
 ## 2.38.9 — Public Preview
 
 The first public release since 2.25.2. Most of what earlier previews marked "Coming soon" is now part of the app.
