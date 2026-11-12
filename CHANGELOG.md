@@ -2,6 +2,34 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.38.9 — Public Preview
+
+The first public release since 2.25.2. Most of what earlier previews marked "Coming soon" is now part of the app.
+
+### Use the AI plans you already pay for
+- **Claude (Pro or Max).** Claude Code ships inside Meevra Code, unmodified. You sign in on Anthropic's own page, Claude Code keeps the login, and Meevra Code never sees it.
+- **ChatGPT.** OpenAI's own sign-in opens in your browser; Meevra Code never sees your password.
+- **Coding plans through Claude Code:** Z.ai GLM Coding Plan, MiniMax M Plan, BytePlus ModelArk Coding Plan and StepFun Step Plan. You paste the plan's own key.
+- One account per provider in the preview. The Quota page shows each plan's limits exactly as the provider reports them.
+
+### Now included
+- **Bots**, **Race** (one task on several models: compare what each did and keep the best), **Scout** (a quick read-only helper for your agents), **Mobile**, **TV & second screen** and the advanced **Brain** pages.
+
+### Tasks
+- A task that reaches a plan's limit waits for the reset and then goes on. It never moves to paid usage on its own.
+- A task waits out a lost internet connection and continues by itself.
+- A task ends as done only when nothing is left to do; a result Meevra Code could not check reads "Needs a look", not "Done".
+
+### Smaller downloads
+- The installer is about 510 MB (it was 612 MB).
+- From this version on, an update can download only the files that changed instead of the whole installer.
+- Your settings, chats and connections are carried over on the first start after the update.
+
+### Good to know
+- Meevra Code now opens on Code.
+- The license agreement is still version 1.5.
+- The installer is still not code-signed, so Windows SmartScreen may ask before it runs.
+
 ## 2.25.2 — Public Preview
 
 - Pictures you attach to a Code task now reach models that can see images (OpenAI, Anthropic and Google API keys; such models show the **Vision** mark). A model that cannot see images says so plainly.

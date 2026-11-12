@@ -72,7 +72,7 @@ Meevra Code does not include access to any AI model. You connect your own provid
 
 - **Windows 10 or Windows 11, 64-bit (x64).**
 - An internet connection for cloud AI providers and updates. Local models work without one.
-- At least one AI connection: an API key from a supported provider, or a local model (see [Providers](#providers)).
+- At least one AI connection: a plan you sign in to, an API key from a supported provider, or a local model (see [Providers](#providers)).
 
 ### Install
 
@@ -94,7 +94,7 @@ Your installed version is shown in **Settings › Updates**. Please include it w
 
 ## Your first task
 
-1. **Connect a provider.** Open **Providers** and add an API key (Anthropic, OpenAI, OpenRouter or Xiaomi MiMo), or set up a local model. Keys are stored encrypted on your computer.
+1. **Connect a provider.** Open **Providers** and sign in with a plan you already have (Claude, ChatGPT or Grok Build), add an API key (Anthropic, OpenAI, OpenRouter or Xiaomi MiMo), or set up a local model. Keys are stored encrypted on your computer.
 2. **Open a project.** Choose a folder on your computer. A git repository works best (it unlocks session branches and the test checks), but any folder works.
 3. **Describe the task.** In **Code**, write what you want built, fixed or changed, and press send. The Lead plans, works, and asks for approval where your approval level says it should.
 4. **Review the result.** When the task ends you see the files that changed, the tests and build Meevra Code ran itself, and a check of every claim the agent made.
@@ -264,6 +264,9 @@ This section lists the mechanisms that exist in the app. Each one is marked with
 
 | Connection | How you connect | Notes |
 |---|---|---|
+| **Claude plan (Pro or Max)** | *Connect* in Providers, then Anthropic's own sign-in in Claude Code | Claude Code ships inside Meevra Code, unmodified, and keeps the login; Meevra Code never sees it. Usage counts against your own plan's limits. |
+| **ChatGPT plan** | *Sign in to ChatGPT* in Providers, then OpenAI's own sign-in in your browser | Meevra Code never sees your password. The sign-in is for Meevra Code only. |
+| **Coding plans** | The plan's own key | Z.ai GLM Coding Plan, MiniMax M Plan, BytePlus ModelArk Coding Plan and StepFun Step Plan, used through Claude Code. |
 | **Anthropic API** | API key | Pay-as-you-go, billed by Anthropic. |
 | **OpenAI API** | API key | Pay-as-you-go, billed by OpenAI. |
 | **OpenRouter** | Sign in with OpenRouter, or paste an OpenRouter key | One account for models from many labs, billed to your OpenRouter credits. The Quota page shows your credit balance. |
@@ -273,20 +276,15 @@ This section lists the mechanisms that exist in the app. Each one is marked with
 | **Built-in local engine** | A `.gguf` model file on your computer | Runs inside Meevra Code. No separate server needed. |
 | **Local model servers** | Ollama, LM Studio, or any OpenAI-compatible server **running on your computer** | In the Public Preview, custom endpoints must be on this computer (localhost). |
 
-When you have not picked a model yet, Meevra Code uses the first connected one in this order: Anthropic API, OpenAI API, OpenRouter, Xiaomi MiMo Token Plan, Xiaomi MiMo API, a signed-in Grok Build, the built-in engine, then a local server. Your own choice always replaces this default.
+When a Chat has no model yet, Meevra Code starts it on the first connected API key or local model that can chat. Your own choice always replaces this default. One account per provider can be connected in the preview.
 
 Provider names are used only to identify the services Meevra Code can connect to. Meevra is not affiliated with or endorsed by these providers. Your use of each provider is governed by your agreement with that provider.
 
 ### Coming soon
 
-These parts of the app show a quiet **"Soon"** badge or a *Coming soon* card in the Public Preview:
+Bots, Race, Scout, Mobile, TV & second screen, the plan sign-ins and the advanced Brain pages were marked "Coming soon" in earlier previews. Since 2.38 they are part of the app.
 
-- **Bots** — bots that tidy, summarise or digest your folders, with your approval.
-- **TV & second screen** — show Meevra Code on a TV or a second screen.
-- **Mobile** — follow and control Meevra Code from your phone.
-- **More subscription sign-ins** — use other AI plans you already pay for, each with its own sign-in.
-- **Scout** — a quick helper that reads files for your agents, so they save time.
-- **Brain: Agent memory, Brain Explorer and Memory savings.**
+A part that is not ready yet shows a quiet **"Soon"** badge or a *Coming soon* card in the app itself.
 
 As the license agreement says, showing a feature as "Coming soon" is not a promise that it will be released at a given time, or at all. We will be honest about what ships and when.
 
@@ -314,9 +312,7 @@ Found a security issue? Please report it privately: see [SECURITY.md](SECURITY.m
 
 These are **plans, not promises**. Priorities may change with your feedback.
 
-- **Meevra Bots for everyone.** Supervised bots that look after your folders (tidy, summarise, digest), each with its own goal and memory, reviewed by a supervisor model and working with your approval.
 - **TV & second screen leaves Experimental.** Extending or mirroring Meevra Code to a TV or a second screen, after it has been tested on real devices.
-- **Meevra Mobile.** Pair your phone by scanning a QR code, follow your tasks live, and answer approvals on the go.
 - **Meevra Link.** Several computers working together, so you can start a task on one and resume it on another.
 - **Signed installers.** A code-signed installer, so Windows no longer shows "Unknown publisher".
 - **More of what is "Coming soon"** in the app today, as each part is ready for everyone.
