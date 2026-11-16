@@ -23,8 +23,10 @@ This repository holds the **releases** of Meevra Code: the Windows installer, th
   - [Chat](#chat)
   - [Code tasks: a Lead and helper roles](#code-tasks-a-lead-and-helper-roles)
   - [Approvals, checkpoints and session branches](#approvals-checkpoints-and-session-branches)
+  - [Delivery: from a finished task to a pull request](#delivery-from-a-finished-task-to-a-pull-request)
   - [Proof, Test truth and the Claims checker](#proof-test-truth-and-the-claims-checker)
   - [The error catcher and the stuck detector](#the-error-catcher-and-the-stuck-detector)
+  - [Promise, Reflexes and the Night shift](#promise-reflexes-and-the-night-shift)
   - [Mission Control](#mission-control)
   - [Flow](#flow)
   - [Projects](#projects)
@@ -134,18 +136,38 @@ By default **every helper uses the same model as the Lead**, so nobody is opted 
 - **Roll back any step.** Every step that changes files is saved as a checkpoint, labelled with what it did. You can rewind a session to any step. Checkpoints are stored locally, in Meevra Code's own data folder.
 - **A branch per session (optional).** A Code session can work in its own git worktree on its own branch, so your checkout stays untouched while the agents work. When you are happy, the session's changes are merged into your branch (never forced, never pushed); a conflict is aborted and reported. You can also discard the session.
 
+### Delivery: from a finished task to a pull request
+
+When a Code session has changed files in a Git project that has a remote, a **Delivery** row appears under its task. It takes the change from your computer to a pull request, and **Meevra Code does it itself: no model is used and no tokens are spent.**
+
+- **Deliver.** The row says what would be pushed (only the files this session's tasks changed, never anything else that is changed in the folder), to which branch and into which branch. When you press **Deliver**, Meevra Code asks you to confirm in its own window before anything leaves your computer. A push is never forced, and nothing is merged.
+- **The pull request.** On GitHub, Meevra Code opens the pull request and writes into it what it knows itself: your request, the changed files with their line counts, the test run and the proof. On other Git services it pushes the branch and gives you the link to the page that opens the pull request.
+- **The checks.** Meevra Code then reads the pull request's checks and shows them on the row: running, passed, or failed with the failed checks named. **Read the checks again** and **Stop reading** are yours.
+- **A failed check.** **Ask the agent to fix it** sends the failed checks, exactly as GitHub reported them, to the session's agent (this is the only step that uses a model, and only when you press it). **Push the fix** then updates the same pull request.
+- **Sign-in.** Meevra Code uses the sign-in Git already has on your computer. It is kept in memory only, is sent only to GitHub, and is never stored or written to a log.
+- **Safe by design.** Git hooks do not run, and a push follows nothing the project's own Git settings name (a program for the connection or the sign-in, another address, a proxy). In such a project Meevra Code does not push and says why; you push from your terminal.
+
 ### Proof, Test truth and the Claims checker
 
-These three checks are why "done" in Meevra Code means something. **None of them uses an AI model, so they cost no tokens** (unless you press *Fix it* to send a failure back to the Lead).
+These checks are why "done" in Meevra Code means something. **None of them uses an AI model, so they cost no tokens** (unless you press *Fix it* to send a failure back to the Lead).
 
 - **Proof it works.** Before a task may end as done, Meevra Code gathers evidence it observed itself: your project's tests with the real pass and fail counts, your typecheck or build script and its exit status, optionally the app started, checked and stopped, and the files that changed with their line counts. Each check shows the exact command it ran.
 - **Test truth.** Agents often write a test that passes whether or not their change exists, so the test proves nothing. When a task changes both tests and source files, Meevra Code checks this itself: in a temporary copy of your project (never your working folder), it runs each new test with the change, then puts the source files back as they were before the task and runs the tests again. A test that still passes is marked **"Doesn't check the change"**; a test that now fails is marked **"Checks the change"**.
 - **Claims checker.** When the agent finishes, it reports its results as structured claims: tests passed, build OK, files changed, bug fixed, nothing left. Meevra Code compares each claim with its own records of the task (the commands it ran with their exit codes, the files that really changed, the proof runs, the plan's open steps) and shows each one as **✓ verified**, **? not verified** or **✗ contradicted**, with the record that decided it.
+- **Proof strength.** Passing tests prove little if they would also pass with a mistake in the change. After a task's tests pass, Meevra Code checks this itself: in a temporary copy of your project it makes one small break at a time in the lines the task changed (a comparison turned around, a condition flipped) and runs the tests that reach them. The Proof card shows which breaks the tests noticed, which they did not, and which changed files no test reaches; **Ask the agent to cover these** sends them back to the Lead. It needs a Git project with a test command, costs processor time only, and is on by default (**Settings › Agents › Proof before Done › Check proof strength**).
 
 ### The error catcher and the stuck detector
 
 - **Error catcher.** Meevra Code watches the processes it starts (Terminal commands, a task's commands and test runs, pages in its own browser) and catches their errors: stack traces, failing test runs, non-zero exits, page errors. Each becomes a card mapped to your project's files, with *Fix it* to send it to a Code session. You never have to copy an error into a chat by hand.
 - **Stuck detector.** A task that goes in circles burns quota. Meevra Code notices it from structured signals (the same step repeated with the same result, the same failure after each fix, edits that undo earlier edits, rounds with no progress, tokens spent with nothing new happening) and pauses the task early with a plain explanation. You choose what happens next. It never judges what the model wrote.
+
+### Promise, Reflexes and the Night shift
+
+Three ways Meevra Code uses its own record of your finished tasks. **None of them asks a model anything.**
+
+- **Promise.** A running task shows a promise: the number of turns and the time that tasks like it usually finish within, taken from your own finished tasks in the same project or with the same model (after at least three of them). A task that reaches twice its promise is held and asks you: resume, change the model, or cancel. At the end the task says whether the promise was kept. A task that works on the screen has no promise.
+- **Reflexes.** When a finished task was a set of commands that all ended well, Meevra Code offers **Save as a reflex**. The next time, it runs the recorded steps itself, with no model and no plan quota. If a step ends differently than recorded, the model takes over from there.
+- **Night shift.** **Queue for the night shift** in the Code composer's **+** menu puts a task in a queue. In the hours you set (23:00 to 07:00 by default), Meevra Code runs the queued tasks one at a time on your current Code model. It runs only on a plan, a free route or a local model, never on a route that costs money, and on a plan it spends only the quota that would otherwise be lost before the reset. It does not start while you are working in Code. A step that needs your approval is not approved while you are away, so the card tells you before the night what your approval level allows. The card on the New task page shows the queue, why a task waits and how each one ended.
 
 ### Mission Control
 
@@ -201,6 +223,7 @@ The Quota page also includes:
 - **Local usage** — Meevra Code's own ledger of tokens per day and estimated costs, labelled as estimates, never as provider bills.
 - **Forecast** — for windows a provider reports, the burn rate and when the limit would run out before its reset. With fewer than two readings it says there is not enough data instead of guessing.
 - **Who uses it** — which agent used how much of a window.
+- **Where it went** — Meevra Code records every model turn, and this tab shows the tokens by model, reasoning effort, who used them (the Lead, a helper, a summary), task and day. It also shows **what the API would charge** for the same tokens at the public list price, next to your plan's monthly fee, and what Meevra Code does by default to spend less. Each finished task has a usage line under it, with a link to this tab.
 
 The **quota line** is a thin line on the Code page, under the running task, that shows the limits of the provider at work **right now**. When Meevra Code switches connection mid-task, the line follows it. It shows only provider-reported numbers.
 
@@ -212,6 +235,8 @@ The **quota line** is a thin line on the Code page, under the running task, that
 ### Computer use
 
 Agents can see the screen and use the apps you allow. In the Public Preview, **Computer use is off until you turn it on**. Reading the screen needs the switch; controlling an app (focus, click, type) needs the switch and that app being on your allowed list. While a task uses the computer, the edges of the screen glow, and **Stop** works at any moment. Screen control still asks for approval under *Every step* and *Balanced*.
+
+While it works, the window of the task comes to the front whatever is open, Meevra Code steps aside, and you see the pointer move. To spend fewer tokens, the model sends several steps in one turn and says what it expects of each; Meevra Code carries them out and holds the rest as soon as a step does not go as predicted.
 
 ### Terminal
 
@@ -229,9 +254,7 @@ The audit trail: Code tasks, approvals, tests, provider events. When you want to
 
 ## How Meevra Code saves quota and money
 
-This section lists the mechanisms that exist in the app. Each one is marked with what is available in the Public Preview.
-
-**Available in the Public Preview**
+This section lists the mechanisms that exist in the app. All of them are in the Public Preview.
 
 1. **You pay your provider directly, with no markup.** Meevra Code does not resell model access. You use your own API keys or local models, and the provider's own prices apply.
 2. **No silent pay-as-you-go.** Automatic model choice never moves work onto a usage-billed API on its own. A fallback to pay-as-you-go happens only if you turn on *Allow API fallback*. A model you chose yourself is always respected.
@@ -248,13 +271,13 @@ This section lists the mechanisms that exist in the app. Each one is marked with
 13. **Cross-model review on included models only.** An automatic switch to a different reviewer model never picks a pay-as-you-go route.
 14. **Local models.** Run models on your own computer with the built-in engine, Ollama or LM Studio, at no per-token cost.
 15. **Use the Grok Build plan you already have.** Sign in to Grok Build with xAI's own sign-in, and your tasks and chats run on that plan instead of a pay-as-you-go key. When the plan reaches its limit, the task pauses for quota; it never moves to paid usage on its own.
-
-**Coming soon in the Public Preview** (already part of Meevra Code, not yet in this edition)
-
-- **More AI plans you already pay for.** Sign-in for other subscription plans, so a coding plan you already have can do the work instead of a pay-as-you-go key.
-- **Scout.** A small, quick helper model that reads files for your agents, so the Lead does not spend its own (larger) model's turns on reading.
-- **Agent memory.** Each agent keeps what it learned about the project, so its next task does not start from zero.
-- **Memory savings.** A view of how much memory saves on every model call.
+16. **The AI plans you already pay for.** Sign in to Claude or ChatGPT with the maker's own sign-in, or paste a coding plan's key, and the plan does the work instead of a pay-as-you-go key.
+17. **Fewer turns.** A coding task is asked to finish in the fewest turns, and the turns after finished work run at a lower reasoning effort. On our two measured coding tasks that was about 43 percent and about 24 percent fewer tokens, with every test passed.
+18. **Reflexes.** A finished task of commands runs again with no model call at all.
+19. **Night shift.** Queued tasks run at night on plan quota that would otherwise be lost before the reset, never on a route that costs money.
+20. **Where it went.** One record for every model turn shows which model, effort and task used your tokens, and what the same tokens would cost on the API.
+21. **Scout.** A small, quick helper model reads files for your agents, so the Lead does not spend its own (larger) model's turns on reading.
+22. **Agent memory and memory savings.** Each agent keeps what it learned about the project, and a view shows how much memory saves on every model call.
 
 ---
 

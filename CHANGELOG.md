@@ -2,6 +2,60 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.41.0 — Public Preview
+
+The first public release since 2.38.10. It brings everything built in between: six new features, a much faster and cheaper Computer use, and coding tasks that take fewer turns.
+
+### Delivery: from a finished task to a pull request
+- A new **Delivery** row under a Code session's task takes the session's change from your computer to a pull request. Meevra Code does it itself; no model is used.
+- **Deliver** shows what would be pushed (only the files this session's tasks changed, never other changes in the folder), to which branch and into which branch. Meevra Code asks you to confirm in its own window before anything leaves your computer. Nothing is forced and nothing is merged.
+- On GitHub it opens the pull request (the request, the changed files, the test run and the proof are written into it) and then reads the pull request's checks: running, passed, or failed with the failed checks named.
+- When a check fails, **Ask the agent to fix it** sends the failed checks, as GitHub reported them, to the session's agent; **Push the fix** then updates the same pull request.
+- On other Git services Meevra Code pushes the branch and gives you the link to the page that opens the pull request.
+- It uses the sign-in Git already has on your computer. The sign-in is kept in memory only and is sent only to GitHub.
+- A push follows nothing the project's own Git settings name (a program, another address, a proxy). In such a project Meevra Code does not push and says why; push from your terminal.
+
+### Quota: where it went
+- A new **Where it went** tab on the Quota page: every model turn is recorded, and you see the tokens by model, reasoning effort, who used them (Lead, helpers, summaries), task and day.
+- **What the API would charge** for the same tokens, at the public list price, next to your plan's monthly fee.
+- A usage line under each task: its turns and tokens, with a link to the tab.
+
+### Proof strength
+- After a task's tests pass, Meevra Code checks by itself whether those tests would notice a small mistake in the change: in a temporary copy of your project it makes one small break at a time in the changed lines and runs the tests that reach them.
+- The Proof card shows which breaks the tests noticed, which they did not, and which changed files no test reaches. **Ask the agent to cover these** sends them back.
+- No model is used; it costs processor time only. On by default: **Settings › Agents › Proof before Done › Check proof strength**.
+
+### Reflexes
+- When a finished task was a set of commands that all ended well, Meevra Code offers **Save as a reflex**. The next time, it runs the recorded steps itself: no model and no plan quota.
+- If a step ends differently than recorded, the model takes over from there.
+
+### Promise
+- A running task shows a promise: the number of turns and the time tasks like it usually finish within, taken from your own record of finished tasks with the same model. No model is asked.
+- A task that reaches twice its promise is held and asks you: resume, change the model, or cancel. At the end it says whether the promise was kept.
+
+### Night shift
+- **Queue for the night shift** in the Code composer's **+** menu puts a task in a queue. In the hours you set (23:00 to 07:00 by default) Meevra Code runs the queued tasks one at a time.
+- It runs only on a plan, a free route or a local model, never on a route that costs money, and it spends only the plan quota that would otherwise be lost before the reset.
+- It does not start while you are working in Code. A card on the New task page shows the queue, why a task waits and how each one ended.
+
+### Computer use
+- The window of the task comes to the front whatever is open, Meevra Code steps aside while it works, and you see the pointer move.
+- Much faster: looks and actions run in one helper process, and the model sends several steps in one turn; Meevra Code holds the rest when a step does not go as predicted.
+- On our measured task it used about 59 percent fewer tokens.
+- The glow stays on for the whole task, and work inside one window is no longer paused as going in circles.
+
+### Fewer turns, fewer tokens
+- A coding task takes fewer turns and uses a lower reasoning effort after finished work. On our two measured coding tasks that was about 43 percent and about 24 percent fewer tokens, with every test passed.
+- On a Claude plan the tool list is written compactly and the long entries of rarely used tools come on request: about 8 percent fewer tokens on a coding task.
+
+### Fixes
+- **Full access** asks nothing, with every model, and the level you chose stays after a restart.
+- A custom OpenAI-compatible provider now receives every tool's parameters.
+- A task is no longer paused as going in circles when something new happened after its repeated step, and is no longer blocked by a step that was never attempted.
+- The rows at the bottom of Code no longer run into each other.
+
+Good to know: an installed 2.38.10 takes this as a small update (about 3 MB). Older versions download the full installer (about 510 MB).
+
 ## 2.38.10 — Public Preview
 
 Five fixes found while testing 2.38.9 with real Claude, ChatGPT and Grok plans.
