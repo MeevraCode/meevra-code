@@ -2,6 +2,32 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.42.1 — Public Preview
+
+Reply comes to the public release, with fixes to how a task's changes and its Flow are shown. An installed 2.41.0 takes it as a small update (about 3 MB).
+
+### Reply: answer any message of a thread
+- Every message of a thread offers **Reply**, as in a chat app: an answer of the agent, a line it wrote during a task, a notice of Meevra Code itself, a Chat answer that failed. It works with every model, in Code and in Chat.
+- Select a part of a message first and only that part is quoted. The quote shows over the prompt until you send or cancel it.
+- A reply sent **while a task is running** reaches the running task: the agent gets your words with the quote at its next step, and nothing is restarted.
+- The agent's message that answers your reply is marked **Answer to your reply**, with the words you quoted, so it is easy to tell apart from the rest of the task.
+- Pressing the quote in a message you sent goes to the message it quotes and lights it. If that message is not on screen, Meevra Code says so.
+- The quote reaches the model as quoted text, after your own words: it is never read as an instruction of yours.
+
+### Tasks
+- **Files a command wrote are counted.** A file written by a program the task ran (a shell command, a script) is listed with the run that wrote it and counted in the task's changes, in a Git repository and in a folder with no Git.
+- In a folder with no Git a task starts at once: no Git process is started that can only answer "not a repository".
+- **Task started on** names the model the task's Lead runs on.
+
+### Flow
+- A step a stopped task never ran reads **not run**, one that was stopped in the middle reads **stopped**, one you denied reads **denied**. None of them reads "done".
+- A task that waits for your answer reads **waiting for you**, not "running".
+- An approval that ended with no answer from you (the task was stopped, or the request ran out) reads **not answered** and is not counted as decided.
+
+### Known limits
+- Outside a Git repository a task that ran a program ends as **Needs a look**, not Done: without a repository Meevra Code cannot prove what the program changed.
+- Sessions made before this version show no **Answer to your reply** mark on their old messages.
+
 ## 2.41.0 — Public Preview
 
 The first public release since 2.38.10. It brings everything built in between: six new features, a much faster and cheaper Computer use, and coding tasks that take fewer turns.

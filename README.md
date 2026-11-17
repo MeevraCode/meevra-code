@@ -22,6 +22,7 @@ This repository holds the **releases** of Meevra Code: the Windows installer, th
 - [Features](#features)
   - [Chat](#chat)
   - [Code tasks: a Lead and helper roles](#code-tasks-a-lead-and-helper-roles)
+  - [Reply: answer any message](#reply-answer-any-message)
   - [Approvals, checkpoints and session branches](#approvals-checkpoints-and-session-branches)
   - [Delivery: from a finished task to a pull request](#delivery-from-a-finished-task-to-a-pull-request)
   - [Proof, Test truth and the Claims checker](#proof-test-truth-and-the-claims-checker)
@@ -129,6 +130,15 @@ A clean conversation with an AI model, **with no project access**: Chat cannot r
 **Why it matters.** Each helper gets only what it needs (the objective, scope and criteria, never the Lead's whole conversation), and its permissions are fixed by its role: a prompt or a setting can never give a read-only reviewer the right to write. The Lead does not decide on its own that a task is complete: Meevra Code checks the evidence.
 
 By default **every helper uses the same model as the Lead**, so nobody is opted into spending on several providers without choosing it. You can give each role its own model, reasoning effort and prompt on the [Agents](#agents-and-roles) page.
+
+### Reply: answer any message
+
+Every message of a thread offers **Reply**, as in a chat app: an answer of the agent, a line it wrote during a task, a notice of Meevra Code itself, a Chat answer that failed. It works with every model, in Code and in Chat.
+
+- **Quote a part.** Select a part of a message first and only that part is quoted. The quote shows over the prompt until you send or cancel it.
+- **Steer a running task.** A reply sent while a task is running reaches that task: the agent gets your words with the quote at its next step, and nothing is restarted.
+- **See the answer.** The agent's message that answers your reply is marked **Answer to your reply**, with the words you quoted. Pressing the quote in a message you sent goes to the message it quotes.
+- **Safe by design.** The quote reaches the model as quoted text, after your own words: it is never read as an instruction of yours.
 
 ### Approvals, checkpoints and session branches
 
