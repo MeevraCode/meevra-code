@@ -197,7 +197,7 @@ The active project at a glance: its folder, its branch and the files that change
 
 When an agent starts work, Meevra Code gives it a small, bounded capsule of the memory relevant to this task (only from this project, never another one), so agents do not rediscover the same facts on every task. Memory is passed to the model as reference data, never as instructions, and secrets are filtered out before anything is stored or sent. Brain makes no network calls of its own.
 
-In the Public Preview, project memory is read-only and chat history is kept. **Agent memory** (what each agent remembers), the **Brain Explorer** (browse, search and edit everything) and **Memory savings** are *Coming soon*.
+The Brain page also has **Agent memory** (what each agent remembers), the **Brain Explorer** (browse, search and edit everything Brain holds) and **Memory savings** (how much memory saves on every model call).
 
 ### Vault
 

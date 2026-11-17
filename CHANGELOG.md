@@ -2,6 +2,18 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.42.2 — Public Preview
+
+A small release that makes the start of the app safer. An installed 2.42.1 takes it as a small update (about 2 MB).
+
+### Start
+- **A window that stays blank at start recovers by itself.** If the app's page has not arrived 20 seconds after start, Meevra Code loads it again. If it still has not arrived, Meevra Code makes the window again once, and after that shows the window as it is. Each of these steps is written to the app's log.
+- A page that fails to load is written to the log in the installed app too, with the error's code and description.
+- Closing a window that Meevra Code had to recover ends the app as usual.
+
+### Quota
+- **What the API would charge** uses the public list prices of 17 November 2026, for 216 models.
+
 ## 2.42.1 — Public Preview
 
 Reply comes to the public release, with fixes to how a task's changes and its Flow are shown. An installed 2.41.0 takes it as a small update (about 3 MB).
