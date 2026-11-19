@@ -297,7 +297,7 @@ This section lists the mechanisms that exist in the app. All of them are in the 
 13. **Cross-model review on included models only.** An automatic switch to a different reviewer model never picks a pay-as-you-go route.
 14. **Local models.** Run models on your own computer with the built-in engine, Ollama or LM Studio, at no per-token cost.
 15. **Use the Grok Build plan you already have.** Sign in to Grok Build with xAI's own sign-in, and your tasks and chats run on that plan instead of a pay-as-you-go key. When the plan reaches its limit, the task pauses for quota; it never moves to paid usage on its own.
-16. **The AI plans you already pay for.** Sign in to Claude or ChatGPT with the maker's own sign-in, or paste a coding plan's key, and the plan does the work instead of a pay-as-you-go key.
+16. **The accounts you already have.** Sign in to Claude Code or ChatGPT with the maker's own sign-in, or paste a coding plan's key, and that account does the work instead of a pay-as-you-go key.
 17. **Fewer turns.** A coding task is asked to finish in the fewest turns, and the turns after finished work run at a lower reasoning effort. On our two measured coding tasks that was about 43 percent and about 24 percent fewer tokens, with every test passed.
 18. **Reflexes.** A finished task of commands runs again with no model call at all.
 19. **Night shift.** Queued tasks run at night on plan quota that would otherwise be lost before the reset, never on a route that costs money.
@@ -313,8 +313,8 @@ This section lists the mechanisms that exist in the app. All of them are in the 
 
 | Connection | How you connect | Notes |
 |---|---|---|
-| **Claude plan (Pro or Max)** | *Connect* in Providers, then Anthropic's own sign-in in Claude Code | Claude Code ships inside Meevra Code, unmodified, and keeps the login; Meevra Code never sees it. Usage counts against your own plan's limits. |
-| **ChatGPT plan** | *Sign in to ChatGPT* in Providers, then OpenAI's own sign-in in your browser | Meevra Code never sees your password. The sign-in is for Meevra Code only. |
+| **Claude Code** | *Connect* in Providers, then *Sign in to Claude Code*: Anthropic's own sign-in opens in its own window | Claude Code ships inside Meevra Code, unmodified, and keeps the login; Meevra Code never sees it. Usage counts against your own plan's limits. |
+| **ChatGPT** | *Sign in to ChatGPT* in Providers, then OpenAI's own sign-in in your browser | Meevra Code never sees your password. The sign-in is for Meevra Code only. |
 | **Coding plans** | The plan's own key | Z.ai GLM Coding Plan, MiniMax M Plan, BytePlus ModelArk Coding Plan and StepFun Step Plan, used through Claude Code. |
 | **Anthropic API** | API key | Pay-as-you-go, billed by Anthropic. |
 | **OpenAI API** | API key | Pay-as-you-go, billed by OpenAI. |
@@ -331,7 +331,7 @@ Provider names are used only to identify the services Meevra Code can connect to
 
 ### Coming soon
 
-Bots, Race, Scout, Mobile, TV & second screen, the plan sign-ins and the advanced Brain pages were marked "Coming soon" in earlier previews. Since 2.38 they are part of the app.
+Bots, Race, Scout, Mobile, TV & second screen, the sign-ins to Claude Code and ChatGPT and the advanced Brain pages were marked "Coming soon" in earlier previews. Since 2.38 they are part of the app.
 
 A part that is not ready yet shows a quiet **"Soon"** badge or a *Coming soon* card in the app itself.
 
