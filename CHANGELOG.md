@@ -2,6 +2,17 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.42.3 — Public Preview
+
+A small release for Chat. An installed 2.42.2 takes it as a small update (about 2 MB).
+
+### Chat
+- **A new Chat never starts on a model you removed.** When you disconnect a connection in Providers, a new Chat no longer opens on a model of that connection. It uses the same model as Code until you choose one. Before this release a new Chat kept the removed model, and nothing could be sent from it.
+- A Chat you already used keeps its model: its history stays as it was, and the model is shown as not available until you choose another one.
+
+### Quota
+- **What the API would charge** uses the public list prices of 18 November 2026, for 216 models.
+
 ## 2.42.2 — Public Preview
 
 A small release that makes the start of the app safer. An installed 2.42.1 takes it as a small update (about 2 MB).
