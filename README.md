@@ -38,7 +38,9 @@ This repository holds the **releases** of Meevra Code: the Windows installer, th
   - [Quota and the live quota line](#quota-and-the-live-quota-line)
   - [Tools & MCP](#tools--mcp)
   - [Computer use](#computer-use)
+  - [Skills](#skills)
   - [Terminal](#terminal)
+  - [Browser pane](#browser-pane)
   - [Activity](#activity)
   - [Settings](#settings)
 - [How Meevra Code saves quota and money](#how-meevra-code-saves-quota-and-money)
@@ -242,6 +244,12 @@ The **quota line** is a thin line on the Code page, under the running task, that
 - **Tools** lists the built-in tools agents can use and the rules that limit them (your approval level and permissions).
 - **MCP** connects Model Context Protocol servers and tool packages, and can import servers you have configured in other apps.
 
+### Skills
+
+A skill is a short guide an agent reads when a task needs it. **Thirteen built-in skills** ship with Meevra Code and are on from the first start: video prompting, video editing with ffmpeg, Remotion, image generation, image editing, image upscaling, text in images, logo design in SVG, SVG quality, website design, model comparison, and two that choose the right image or video tool.
+
+The agent sees one line for each skill and reads a skill only when the task needs it, so skills cost almost nothing until they are used. You find them in **Marketplace › Skills**: the built-in ones carry a **Built in** mark and can be turned off, and you can add your own or install more from GitHub. Skills are read in Code tasks. Chat has no tools, so it reads no skill.
+
 ### Computer use
 
 Agents can see the screen and use the apps you allow. In the Public Preview, **Computer use is off until you turn it on**. Reading the screen needs the switch; controlling an app (focus, click, type) needs the switch and that app being on your allowed list. While a task uses the computer, the edges of the screen glow, and **Stop** works at any moment. Screen control still asks for approval under *Every step* and *Balanced*.
@@ -250,7 +258,15 @@ While it works, the window of the task comes to the front whatever is open, Meev
 
 ### Terminal
 
-A terminal inside Meevra Code for running approved shell commands. Errors from commands run here are caught by the error catcher.
+A terminal inside Meevra Code for running approved shell commands. Errors from commands run here are caught by the error catcher. It has its own page, and the **Terminal** button in the title bar (Ctrl+`) opens it in a pane beside the page you are on.
+
+### Browser pane
+
+The **Browser** button in the title bar (Ctrl+Shift+B) opens a browser beside your work: tabs, an address bar that also searches, back, forward and reload. The pane has its own session that stays on your computer, so a site you sign in to there stays signed in. **Forget sign-ins and site data** clears it.
+
+**An agent can work in the pane when you ask.** Ask for it in a Code task, for example "open the preview in the browser pane and try the form". The agent gets its own **Agent** tab beside your tabs and opens pages, clicks, types, reads and takes screenshots there while you watch. It works in the pane's session, so it is signed in where you signed in, and its approval request says so. Without that ask, an agent that needs a browser uses a separate browser of its own, not the pane.
+
+The title bar's **More** menu has **Keep computer awake**: a switch that keeps the computer from sleeping while a long task runs, until you turn it off or close the app.
 
 ### Activity
 
@@ -333,6 +349,7 @@ This is a summary. The full text is the **EULA**, attached to every release as `
 - **Your keys stay on your computer.** API keys are stored encrypted locally and are never sent to us.
 - **Your content goes only where you send it.** When you use a provider, the prompts and files you choose go directly from your computer to that provider.
 - **The update check is anonymous.** When Meevra Code checks for updates, it tells the update service only its version and edition, with no identifier, and marks the first automatic check of each day (and of each calendar month, UTC). We count only those marked checks, by hour (UTC), day, month, version and edition, with no IP address or other personal data stored with the count, and keep the counts for 13 months. The update service (Cloudflare, with update files possibly downloaded from GitHub) receives normal technical data such as your IP address, kept only in their service logs.
+- **The browser pane is a browser.** It connects to the pages you open in it, and to the pages an agent opens there for your task. Those sites receive what any browser sends them. The pane's sign-ins and site data stay on your computer.
 - **Logs stay local.** Diagnostic logs are shared only if you export them yourself and choose to send them to us.
 - **Verified updates.** Every update is verified before it is installed.
 - **Protected by default.** Approval levels, per-role permissions that a prompt cannot widen, Computer use off until you turn it on, and secrets filtered out of anything Meevra Code stores or shows.

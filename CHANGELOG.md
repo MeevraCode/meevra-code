@@ -2,6 +2,24 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.44.0 — Public Preview
+
+A terminal and a browser beside your work, an agent that can use that browser, and thirteen built-in skills. An installed 2.42.3 takes it as a small update (about 3 MB).
+
+### Side panes
+- **A terminal or a browser beside your work.** Two buttons in the title bar open a pane next to the page you are on: Terminal (Ctrl+`) and Browser (Ctrl+Shift+B).
+- **The browser pane** has tabs, an address bar that also searches, back, forward and reload. Its session stays on your computer, so a site you sign in to there stays signed in. "Forget sign-ins and site data" clears it.
+- **Keep computer awake.** A switch in the title bar's More menu keeps the computer from sleeping while a long task runs, until you turn it off or close the app.
+
+### Agents
+- **The agent can work in the browser pane.** Ask for it in a Code task. The agent gets its own Agent tab beside your tabs and opens pages, clicks, types, reads and takes screenshots there. It works in the pane's session, so it is signed in where you signed in, and its approval request says so.
+
+### Skills
+- **Thirteen built-in skills** ship with Meevra Code and are on from the first start: video prompting, video editing with ffmpeg, Remotion, image generation, image editing, image upscaling, text in images, logo design in SVG, SVG quality, website design, model comparison, and two that choose the right image or video tool. The agent reads a skill only when the task needs it. Each can be turned off in Marketplace > Skills.
+
+### Quota
+- **What the API would charge** uses the public list prices of 19 November 2026, for 217 models.
+
 ## 2.42.3 — Public Preview
 
 A small release for Chat. An installed 2.42.2 takes it as a small update (about 2 MB).
