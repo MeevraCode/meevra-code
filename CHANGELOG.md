@@ -2,6 +2,16 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.44.1 — Public Preview
+
+A small release for the license agreement. An installed 2.44.0 takes it as a small update (about 0.5 MB).
+
+### License agreement
+- **Version 1.6 names the browser pane** in the list of internet connections of its Privacy section: the websites you open in the pane, the pages an agent opens there when you ask it to, that the pane's sign-ins, cookies and site data stay on your computer, and that an agent working there is signed in where you signed in. Meevra Code shows the agreement once more at the next start and asks you to accept it.
+
+### Quota
+- **What the API would charge** uses the public list prices of 19 November 2026, for 217 models.
+
 ## 2.44.0 — Public Preview
 
 A terminal and a browser beside your work, an agent that can use that browser, and thirteen built-in skills. An installed 2.42.3 takes it as a small update (about 3 MB).
