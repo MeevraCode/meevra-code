@@ -2,6 +2,16 @@
 
 Meevra Code release notes. Every release is on the [Releases](https://github.com/MeevraCode/meevra-code/releases) page, with its installer, its license agreement and its third-party notices.
 
+## 2.44.2 — Public Preview
+
+A small release for the app's words. An installed 2.44.1 takes it as a small update (about 1.3 MB).
+
+### Words
+- **Connections are named as accounts and sign-ins.** The app says **Claude account** and **ChatGPT account** for the connection, and **Sign in to Claude Code** or **Sign in to ChatGPT** for the step that makes it: Settings > Providers, the model list, Quota, the welcome screen, the Disconnect and Sign out dialogs. Messages about a limit say "usage limit". Only the words changed.
+
+### Quota
+- **What the API would charge** uses the public list prices of 20 November 2026, for 217 models.
+
 ## 2.44.1 — Public Preview
 
 A small release for the license agreement. An installed 2.44.0 takes it as a small update (about 0.5 MB).
